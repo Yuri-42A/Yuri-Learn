@@ -1,0 +1,9 @@
+#输入三个整数x,y,z，请把这三个数由小到大输出
+str = input("请输入三个整数(用空格隔开)：")
+l = str.split( )
+a = int(l[0])
+b = int(l[1])
+c = int(l[2])
+l1 = [a,b,c]
+l1.sort()
+print(l1)
