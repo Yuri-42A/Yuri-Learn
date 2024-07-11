@@ -1,0 +1,42 @@
+'''斐波那契数列
+又称黄金分割数列，指的是这样一个数列：1、1、2、3、5、8、13、21、34、……。
+在数学上，费波那契数列是以递归的方法来定义：
+F0 = 0     (n=0)
+F1 = 1    (n=1)
+Fn = F[n-1]+ F[n-2](n=>2)'''
+
+def fib(n):
+    if n <= 1:
+        return n
+    return fib(n - 1) + fib(n - 2)
+
+# 使用递归函数生成斐波那契数列的前n项
+def fib_sequence(n):
+    if n <= 0:
+        return []
+    sequence = []
+    for i in range(1, n + 1):
+        sequence.append(fib(i))
+    return sequence
+
+# 打印斐波那契数列的前n项
+print(fib_sequence(8))
+
+#上面方法使用递归，数据量大的时候效率很低，下面使用迭代的方式输出斐波那契数列
+def fib_sequence(n):
+    # 初始化数列的前两项
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [1]
+    elif n == 2:
+        return [1, 1]
+
+    sequence = [1, 1]
+    for i in range(2, n):
+        next_fib = sequence[i - 1] + sequence[i - 2]
+        sequence.append(next_fib)
+
+    return sequence
+
+print(fib_sequence(8))
